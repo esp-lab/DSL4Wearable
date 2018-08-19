@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:StateSchema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model">
+  <components xsi:type="iotw:StartPoint" constraints="66,47,30,30" outgoings="//@connnections.0"/>
+  <components xsi:type="iotw:StateFrame" constraints="28,129,200,100" incomings="//@connnections.0" outgoings="//@connnections.1" name="Start" content=""/>
+  <components xsi:type="iotw:StateFrame" constraints="31,325,200,100" incomings="//@connnections.1" outgoings="//@connnections.2" name="GetReceived" content=""/>
+  <components xsi:type="iotw:StateFrame" constraints="423,319,200,100" incomings="//@connnections.2" name="SendResponse" content=""/>
+  <connnections source="//@components.0" target="//@components.1"/>
+  <connnections source="//@components.1" target="//@components.2" kind="Outside_Flow" label="&quot;get&quot; received"/>
+  <connnections source="//@components.2" target="//@components.3" kind="Outside_Flow" label="&quot;Server gui lai get&quot; send"/>
+</iotw:StateSchema>

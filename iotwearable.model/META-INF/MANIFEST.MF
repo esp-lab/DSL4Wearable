@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: iotwearable.model
+Bundle-SymbolicName: iotwearable.model;singleton:=true
+Bundle-Version: 1.0
+Bundle-ClassPath: .
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.draw2d;bundle-version="3.9.101"
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: com.iuh.iotwearable
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: iotwearable.model.iotw,
+ iotwearable.model.iotw.impl,
+ iotwearable.model.iotw.util

@@ -1,0 +1,2 @@
+Generate code for Bai3_LCD_Keypad: 2018/07/30 10:16:35 by ESP-LAP WAGEN Tools
+Generate code completed.

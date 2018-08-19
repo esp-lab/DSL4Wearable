@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:ArduinoUNOR3 xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model" name="Arduino UNO R3" pin2="2,IO" pin3="3,IO" pin4="4,IO" pin5="5,IO" pin6="6,IO" pin7="7,IO" pin8="8,IO" pin9="9,IO" pin10="10,IO,10&lt;->TX" pin11="11,IO,11&lt;->RX" pin12="12,IO,12&lt;->1">
+  <devices xsi:type="iotw:WifiESP8266" id="wifi" constraints="270,37,50,50" name="Wifi ESP8266" pinTX="TX,IO,10&lt;->TX" pinRX="RX,IO,11&lt;->RX" sSID_ST="ESPLAP" password_ST="1234567890" mode="Access_Point" password_AccessPoint="" protocol="TCP"/>
+  <devices xsi:type="iotw:LED" id="led" constraints="240,116,50,50" name="LED" pin1="1,Passive,12&lt;->1"/>
+</iotw:ArduinoUNOR3>

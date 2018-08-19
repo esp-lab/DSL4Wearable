@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:ArduinoUNOR3 xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model" name="Arduino UNO R3" pin2="2,IO,2&lt;->R1" pin3="3,IO,3&lt;->R2" pin4="4,IO,4&lt;->R3" pin5="5,IO,5&lt;->R4" pin6="6,IO,6&lt;->C1" pin7="7,IO,7&lt;->C2" pin8="8,IO,8&lt;->C3" pin9="9,IO,9&lt;->C4" pin10="10,IO,10&lt;->1" pin11="11,IO,11&lt;->1">
+  <devices xsi:type="iotw:Keypad4x4" id="keypad" constraints="51,73,100,100" name="Keypad 4x4" pin1="R1,IO,2&lt;->R1" pin2="R2,IO,3&lt;->R2" pin3="R3,IO,4&lt;->R3" pin4="R4,IO,5&lt;->R4" pin5="C1,IO,6&lt;->C1" pin6="C2,IO,7&lt;->C2" pin7="C3,IO,8&lt;->C3" pin8="C4,IO,9&lt;->C4" nameButton1="turnOn"/>
+  <devices xsi:type="iotw:Buzzer" id="buzz" constraints="257,190,80,80" name="Buzzer" pin1="1,Passive,10&lt;->1" Tone="230" Time="1000"/>
+  <devices xsi:type="iotw:LED" id="led" constraints="543,39,50,50" name="LED" pin1="1,Passive,11&lt;->1"/>
+</iotw:ArduinoUNOR3>

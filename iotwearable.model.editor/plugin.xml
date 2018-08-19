@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated iotw -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="iotwearable.model.iotw.presentation.IotwModelWizardID"
+            name="%_UI_IotwModelWizard_label"
+            class="iotwearable.model.iotw.presentation.IotwModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/IotwModelFile.gif">
+         <description>%_UI_IotwModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated iotw -->
+      <editor
+            id="iotwearable.model.iotw.presentation.IotwEditorID"
+            name="%_UI_IotwEditor_label"
+            icon="icons/full/obj16/IotwModelFile.gif"
+            extensions="iotw"
+            class="iotwearable.model.iotw.presentation.IotwEditor"
+            contributorClass="iotwearable.model.iotw.presentation.IotwActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

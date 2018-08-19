@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:StateSchema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model">
+  <components xsi:type="iotw:StartPoint" constraints="184,16,30,30" outgoings="//@connnections.0"/>
+  <components xsi:type="iotw:StateFrame" constraints="97,74,200,100" incomings="//@connnections.0 //@connnections.4" outgoings="//@connnections.1 //@connnections.3" name="Start" content=" Hidden led1&#xD;&#xA; Hidden led2&#xD;&#xA;Delay 2000"/>
+  <components xsi:type="iotw:StateFrame" constraints="477,75,200,100" incomings="//@connnections.1" outgoings="//@connnections.2" name="TurnOnLed1" content=" Display led1&#xD;&#xA; Display led2"/>
+  <components xsi:type="iotw:StateFrame" constraints="315,292,200,100" incomings="//@connnections.2" outgoings="//@connnections.4" name="TurnOnLed2" content="Blink led1 4 times"/>
+  <components xsi:type="iotw:EndPoint" constraints="26,112,30,30" incomings="//@connnections.3"/>
+  <connnections source="//@components.0" target="//@components.1"/>
+  <connnections source="//@components.1" target="//@components.2" label="&quot;button&quot; push"/>
+  <connnections source="//@components.2" target="//@components.3" label="&quot;button&quot; push">
+    <bendpoints>576,341</bendpoints>
+  </connnections>
+  <connnections source="//@components.1" target="//@components.4"/>
+  <connnections source="//@components.3" target="//@components.1" label="&quot;button&quot; push">
+    <bendpoints>196,339</bendpoints>
+  </connnections>
+</iotw:StateSchema>

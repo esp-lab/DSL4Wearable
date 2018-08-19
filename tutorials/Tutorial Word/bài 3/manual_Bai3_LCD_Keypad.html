@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Bai3_LCD_Keypad</title>
+    <style>
+    div#footer {
+    clear: both;
+    height: 100px;
+    }
+    div#footer div.fLeft {
+    float: left;
+    width: 50%;
+    }
+    div#footer div.fRight {
+    float: right;
+    width: 50%;
+    }
+    </style>
+</head>
+
+<body>
+  
+    <h2 style="text-align: center">MANUAL INFORMATION</h2>
+    <h2 style="text-align: center">Project : Bai3_LCD_Keypad</h2>
+    <h2>1. Devices</h2>
+    <div style="text-align: center">
+        <table border="1" style="text-align: center" align="center" width="50%">
+            <tr>
+                <th>Device</th>
+                <th>Amount</th>
+			</tr>
+<tr>
+<td>Arduino UNO R3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Keypad 4x4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>I2C LCD 2004</td>
+<td>1</td>
+</tr>
+
+
+        </table>
+    </div>
+
+    <h2>2. Connection table</h2>
+    <div style="text-align: center">
+
+        <table border="1" style="text-align: center" align="center" width="75%">
+            <tr>
+                <th>Device</th>
+                <th>Pin of Controls</th>
+                <th>Pin of Mainboard</th>
+			</tr>
+<tr>
+<td rowspan=8>Keypad 4x4</td>
+
+<td>R1</td>
+<td>2</td>
+</tr>
+<tr>
+<!--Keypad 4x4-->
+<td>R2</td>
+<td>3</td>
+</tr>
+<tr>
+<!--Keypad 4x4-->
+<td>R3</td>
+<td>4</td>
+</tr>
+<tr>
+<!--Keypad 4x4-->
+<td>R4</td>
+<td>5</td>
+</tr>
+<tr>
+<!--Keypad 4x4-->
+<td>C1</td>
+<td>6</td>
+</tr>
+<tr>
+<!--Keypad 4x4-->
+<td>C2</td>
+<td>7</td>
+</tr>
+<tr>
+<!--Keypad 4x4-->
+<td>C3</td>
+<td>8</td>
+</tr>
+<tr>
+<!--Keypad 4x4-->
+<td>C4</td>
+<td>9</td>
+</tr>
+<tr>
+<td rowspan=2>I2C LCD 2004</td>
+
+<td>SDA</td>
+<td>A4</td>
+</tr>
+<tr>
+<!--I2C LCD 2004-->
+<td>SCL</td>
+<td>A5</td>
+</tr>
+
+			</table>
+	</div>
+
+</body>
+
+<footer>
+    <div id="footer">
+        <div class="fLeft">
+            <p>IoT Wearable software</p>
+            <p> Author: Nguyễn Hữu Thuật and Nguyễn Như Thuận - ESP-LAP</p>
+            <p>Date : 30/07/2018</p>
+        </div>
+        <div class="fRight">
+
+        </div>
+    </div>
+
+</footer>
+</html>

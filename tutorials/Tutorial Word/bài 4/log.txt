@@ -1,0 +1,2 @@
+Generate code for Bai4_Keypad_Led_Buzz: 2018/08/19 09:34:26 by ESP-LAP WAGEN Tools
+Generate code completed.

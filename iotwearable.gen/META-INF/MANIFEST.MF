@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Gen
+Bundle-SymbolicName: iotwearable.gen
+Bundle-Version: 1.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: iotwearable.model;bundle-version="1.0.0",
+ org.junit
+Import-Package: 
+ iotwearable.utilities,
+ org.eclipse.emf.ecore.xmi.impl
+Export-Package: iotwearable.gen,
+ iotwearable.gen.cce.device,
+ iotwearable.gen.utilities

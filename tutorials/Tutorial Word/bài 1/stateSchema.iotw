@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:StateSchema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model">
+  <components xsi:type="iotw:StartPoint" constraints="192,19,30,30" outgoings="//@connnections.0"/>
+  <components xsi:type="iotw:StateFrame" constraints="106,94,200,100" incomings="//@connnections.0 //@connnections.5" outgoings="//@connnections.1 //@connnections.3" name="Start" content="Hidden led1&#xD;&#xA;Hidden led2&#xD;&#xA;Hidden led3&#xD;&#xA;Delay 1000"/>
+  <components xsi:type="iotw:StateFrame" constraints="462,91,200,100" incomings="//@connnections.1" outgoings="//@connnections.2" name="LightLED1" content="Display led1&#xD;&#xA;Hidden led2&#xD;&#xA;Hidden led3"/>
+  <components xsi:type="iotw:StateFrame" constraints="462,348,200,100" incomings="//@connnections.2" outgoings="//@connnections.4" name="LightLED2" content="Display led2&#xD;&#xA;Hidden led1&#xD;&#xA;Hidden led3"/>
+  <components xsi:type="iotw:EndPoint" constraints="31,130,30,30" incomings="//@connnections.3"/>
+  <components xsi:type="iotw:StateFrame" constraints="108,347,200,100" incomings="//@connnections.4" outgoings="//@connnections.5" name="lightAll" content="Display led1&#xD;&#xA;Display led3"/>
+  <connnections source="//@components.0" target="//@components.1"/>
+  <connnections source="//@components.1" target="//@components.2" label="&quot;light1&quot; button pressed"/>
+  <connnections source="//@components.2" target="//@components.3" label="&quot;light2&quot; button pressed"/>
+  <connnections source="//@components.1" target="//@components.4"/>
+  <connnections source="//@components.3" target="//@components.5" label="&quot;light1&quot; button pressed"/>
+  <connnections source="//@components.5" target="//@components.1" label="&quot;turnOff&quot; button pressed"/>
+</iotw:StateSchema>

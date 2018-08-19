@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/iotwearable.model/src" modelPluginID="iotwearable.model"
+    modelName="Iotw" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>iotw.ecore</foreignModel>
+  <genPackages prefix="Iotw" basePackage="iotwearable.model" disposableProviderFactory="true"
+      ecorePackage="iotw.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iotw.ecore#//ConnectionKind">
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//ConnectionKind/STATE_FLOW"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//ConnectionKind/OUTSIDE_FLOW"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iotw.ecore#//RouterKind">
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//RouterKind/BENDPOINT"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//RouterKind/MANHATTAN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iotw.ecore#//WifiMode">
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiMode/Station"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiMode/Access_Point"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiMode/Both"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iotw.ecore#//WifiIDConnection">
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiIDConnection/id_0"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiIDConnection/id_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiIDConnection/id_2"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiIDConnection/id_3"/>
+      <genEnumLiterals ecoreEnumLiteral="iotw.ecore#//WifiIDConnection/id_4"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="iotw.ecore#//Rectangle"/>
+    <genDataTypes ecoreDataType="iotw.ecore#//Point"/>
+    <genDataTypes ecoreDataType="iotw.ecore#//Pin"/>
+    <genClasses image="false" ecoreClass="iotw.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Component/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Component/constraints"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//Connection">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Connection/bendpoints"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Connection/routerKind"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iotw.ecore#//Connection/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iotw.ecore#//Connection/target"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Connection/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Connection/label"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference iotw.ecore#//Connection/stateSchema"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//StateSchema">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iotw.ecore#//StateSchema/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iotw.ecore#//StateSchema/connnections"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="iotw.ecore#//StateComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iotw.ecore#//StateComponent/incomings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iotw.ecore#//StateComponent/outgoings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//StateComponent/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="iotw.ecore#//Device">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference iotw.ecore#//Device/mainboard"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Device/name"/>
+      <genOperations ecoreOperation="iotw.ecore#//Device/getPins"/>
+      <genOperations ecoreOperation="iotw.ecore#//Device/getPinConnecteds"/>
+      <genOperations ecoreOperation="iotw.ecore#//Device/modifyPin">
+        <genParameters ecoreParameter="iotw.ecore#//Device/modifyPin/pin"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="iotw.ecore#//IODevice"/>
+    <genClasses image="false" ecoreClass="iotw.ecore#//InputDevice"/>
+    <genClasses image="false" ecoreClass="iotw.ecore#//OutputDevice"/>
+    <genClasses image="false" ecoreClass="iotw.ecore#//Connectivity"/>
+    <genClasses ecoreClass="iotw.ecore#//Mainboard">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iotw.ecore#//Mainboard/devices"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Mainboard/name"/>
+      <genOperations ecoreOperation="iotw.ecore#//Mainboard/addDevice">
+        <genParameters ecoreParameter="iotw.ecore#//Mainboard/addDevice/device"/>
+      </genOperations>
+      <genOperations ecoreOperation="iotw.ecore#//Mainboard/removeDevice">
+        <genParameters ecoreParameter="iotw.ecore#//Mainboard/removeDevice/device"/>
+      </genOperations>
+      <genOperations ecoreOperation="iotw.ecore#//Mainboard/getPins"/>
+      <genOperations ecoreOperation="iotw.ecore#//Mainboard/getPinConnecteds"/>
+      <genOperations ecoreOperation="iotw.ecore#//Mainboard/modifyPin">
+        <genParameters ecoreParameter="iotw.ecore#//Mainboard/modifyPin/pin"/>
+      </genOperations>
+      <genOperations ecoreOperation="iotw.ecore#//Mainboard/findPin">
+        <genParameters ecoreParameter="iotw.ecore#//Mainboard/findPin/pin"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//ArduinoUNOR3">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin0"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin1"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin2"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin3"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin4"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin5"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin6"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin7"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin8"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin9"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin10"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin11"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin12"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pin13"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pinA0"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pinA1"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pinA2"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pinA3"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pinA4"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//ArduinoUNOR3/pinA5"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//Keypad4x4">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/keys"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/rows"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/cols"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin1"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin2"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin3"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin4"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin5"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin6"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin7"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/pin8"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton4"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton5"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton6"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton7"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton8"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton9"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButton0"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButtonA"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButtonB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButtonC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButtonD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButtonHash"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Keypad4x4/nameButtonAsterisk"/>
+      <genOperations ecoreOperation="iotw.ecore#//Keypad4x4/getButton">
+        <genParameters ecoreParameter="iotw.ecore#//Keypad4x4/getButton/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//Button">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Button/pin1"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//LED">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//LED/pin1"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//LED/pin2"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//I2CLCD2004">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//I2CLCD2004/pinGND"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//I2CLCD2004/pinVcc"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//I2CLCD2004/pinSDA"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//I2CLCD2004/pinSCL"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//Buzzer">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Buzzer/pin1"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//Buzzer/pin2"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//BluetoothHC06">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//BluetoothHC06/pinTXD"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//BluetoothHC06/pinRXD"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//BluetoothHC06/pinGND"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//BluetoothHC06/pinVCC"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//WifiESP8266">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/pinTX"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/pinRX"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/pinVcc"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/pinGND"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/pinCHPD"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/sSID_ST"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/password_ST"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/sSID_AP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/password_AP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//WifiESP8266/idConnection"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//StateFrame">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iotw.ecore#//StateFrame/content"/>
+    </genClasses>
+    <genClasses ecoreClass="iotw.ecore#//Decision"/>
+    <genClasses ecoreClass="iotw.ecore#//StartPoint"/>
+    <genClasses ecoreClass="iotw.ecore#//EndPoint"/>
+  </genPackages>
+</genmodel:GenModel>

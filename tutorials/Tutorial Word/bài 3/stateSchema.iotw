@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:StateSchema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model">
+  <components xsi:type="iotw:StartPoint" constraints="51,47,30,30" outgoings="//@connnections.0"/>
+  <components xsi:type="iotw:StateFrame" constraints="57,122,200,100" incomings="//@connnections.0 //@connnections.3" outgoings="//@connnections.1 //@connnections.2" name="Start" content=" Show &quot;Hello World&quot;"/>
+  <components xsi:type="iotw:StateFrame" constraints="299,304,200,100" incomings="//@connnections.1" outgoings="//@connnections.3" name="Hello" content="Show &quot;Welcome to DSL4Wearable&quot;"/>
+  <components xsi:type="iotw:EndPoint" constraints="8,159,30,30" incomings="//@connnections.2"/>
+  <connnections source="//@components.0" target="//@components.1"/>
+  <connnections source="//@components.1" target="//@components.2" label="&quot;welcome&quot; button pressed">
+    <bendpoints>157,353</bendpoints>
+  </connnections>
+  <connnections source="//@components.1" target="//@components.3"/>
+  <connnections source="//@components.2" target="//@components.1" label="&quot;hello&quot; button pressed">
+    <bendpoints>400,172</bendpoints>
+  </connnections>
+</iotw:StateSchema>

@@ -1,0 +1,46 @@
+AT+RST
+
+
+OK
+WIFI DHSCONNECT
+ets Jan  8 2013,rst cause:2, boot mode:(3,7)
+
+load 0x40100000,8tail 0
+chksum 0x63
+load 0x3ffe8007tail 0
+chksol
+Ai-Thinkdr Technology Co. Ltd.
+ready
+WIFI CONNECTED
+
+WIFI GOT IP
+AT+CWMODQOLCC⸮C⸮j⸮H⸮
+AT+CWJAP<"Q*⸮*A⸮
+WR
+WIFH CONNECTED
+AT+CIFSR
+
+qusy p...
+WIFI GOT IP
+
+OK
+
+AT+CIPCLOSE=5
+
+MTX=0
+
+ERROS
+
+AT+CR5⸮5A","192.168/4.22",80
+
+C⸮ʪ⸮(UH⸮H⸮j⸮H⸮
+AT+CIPSEND=3
+
+OK
+> 
+
+
+busy s...
+Recv 3 bytes
+
+SDND j⸮H⸮

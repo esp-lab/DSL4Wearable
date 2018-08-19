@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:ArduinoUNOR3 xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model" name="Arduino UNO R3" pin2="2,IO,2&lt;->R1" pin3="3,IO,3&lt;->R2" pin4="4,IO,4&lt;->R3" pin5="5,IO,5&lt;->R4" pin6="6,IO,6&lt;->C1" pin7="7,IO,7&lt;->C2" pin8="8,IO,8&lt;->C3" pin9="9,IO,9&lt;->C4" pinA4="A4,Input,A4&lt;->SDA" pinA5="A5,Input,A5&lt;->SCL">
+  <devices xsi:type="iotw:Keypad4x4" id="keypad" constraints="105,30,100,100" name="Keypad 4x4" pin1="R1,IO,2&lt;->R1" pin2="R2,IO,3&lt;->R2" pin3="R3,IO,4&lt;->R3" pin4="R4,IO,5&lt;->R4" pin5="C1,IO,6&lt;->C1" pin6="C2,IO,7&lt;->C2" pin7="C3,IO,8&lt;->C3" pin8="C4,IO,9&lt;->C4" nameButton1="welcome" nameButton2="hello"/>
+  <devices xsi:type="iotw:I2CLCD2004" id="lcd" constraints="358,24,197,98" name="I2C LCD 2004" pinSDA="SDA,IO,A4&lt;->SDA" pinSCL="SCL,IO,A5&lt;->SCL"/>
+</iotw:ArduinoUNOR3>

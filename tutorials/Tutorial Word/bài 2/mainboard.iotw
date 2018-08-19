@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:ArduinoUNOR3 xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model" name="Arduino UNO R3" pin2="2,IO,2&lt;->1" pin3="3,IO,3&lt;->1" pin4="4,IO,4&lt;->1">
+  <devices xsi:type="iotw:Button" id="button" constraints="279,197,50,50" name="Button" pin1="1,IO,2&lt;->1"/>
+  <devices xsi:type="iotw:LED" id="led1" constraints="368,59,50,50" name="LED" pin1="1,Passive,3&lt;->1"/>
+  <devices xsi:type="iotw:LED" id="led2" constraints="627,48,50,50" name="LED" pin1="1,Passive,4&lt;->1"/>
+</iotw:ArduinoUNOR3>

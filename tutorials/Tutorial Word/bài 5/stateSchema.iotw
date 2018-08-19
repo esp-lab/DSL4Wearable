@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:StateSchema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model">
+  <components xsi:type="iotw:StartPoint" id="" constraints="111,50,30,30" outgoings="//@connnections.0"/>
+  <components xsi:type="iotw:StateFrame" id="" constraints="31,143,200,100" incomings="//@connnections.0 //@connnections.2" outgoings="//@connnections.1" name="Start" content="Hidden led"/>
+  <components xsi:type="iotw:StateFrame" constraints="30,316,200,100" incomings="//@connnections.1" outgoings="//@connnections.2" name="Show" content="Display led"/>
+  <connnections source="//@components.0" target="//@components.1"/>
+  <connnections source="//@components.1" target="//@components.2" kind="Outside_Flow" label="&quot;turnOn&quot; received"/>
+  <connnections source="//@components.2" target="//@components.1" kind="Outside_Flow" label="&quot;turnOff&quot; received">
+    <bendpoints>424,364</bendpoints>
+    <bendpoints>423,192</bendpoints>
+  </connnections>
+</iotw:StateSchema>

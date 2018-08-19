@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iotw:StateSchema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iotw="http://iotwearable/model">
+  <components xsi:type="iotw:StartPoint" constraints="152,94,30,30" outgoings="//@connnections.0"/>
+  <components xsi:type="iotw:StateFrame" constraints="65,176,200,100" incomings="//@connnections.0 //@connnections.3" outgoings="//@connnections.1 //@connnections.2" name="Start" content="Hidden led"/>
+  <components xsi:type="iotw:StateFrame" constraints="65,362,200,100" incomings="//@connnections.1" outgoings="//@connnections.3" name="Beep" content="Display led&#xD;&#xA;Beep buzz"/>
+  <components xsi:type="iotw:EndPoint" constraints="13,216,30,30" incomings="//@connnections.2"/>
+  <connnections source="//@components.0" target="//@components.1"/>
+  <connnections source="//@components.1" target="//@components.2" label="&quot;turnOn&quot; button pressed"/>
+  <connnections source="//@components.1" target="//@components.3"/>
+  <connnections source="//@components.2" target="//@components.1" label="&quot;turnOn&quot; button pressed">
+    <bendpoints>429,406</bendpoints>
+    <bendpoints>428,226</bendpoints>
+  </connnections>
+</iotw:StateSchema>
