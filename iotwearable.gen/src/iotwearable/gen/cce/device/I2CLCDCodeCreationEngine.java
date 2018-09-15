@@ -27,7 +27,7 @@ public abstract class I2CLCDCodeCreationEngine extends DeviceCodeCreationEngine{
 		String code = "";
 		if(syntax.equals("Show <String>")){
 			code = "<id>.clear();"
-					+ "<plitstext>";
+					+ "<splittext>";
 		}
 		if(syntax.equals("Blink <id>")){
 			code = "<id>.blink();";
