@@ -162,7 +162,7 @@ public class WifiESP8266V1CodeCreationEngine extends WifiCodeCreationEngine {
 			result+= "void HandleRequest(String res){"
 					+ "\nif (res.indexOf(\"GET / HTTP/1.1\") >= 0)"
 					+ "\n	{"
-					+ "\nString content = \"Well come to ESP LAP\";"
+					+ "\nString content = \"Welcome to ESP-LAB\";"
 					+ "\nString cmd = \"AT+CIPSEND=0,\";"
 					+ "\ncmd += content.length();"
 					+ "\nSerial.println(sendCommand(cmd));"
