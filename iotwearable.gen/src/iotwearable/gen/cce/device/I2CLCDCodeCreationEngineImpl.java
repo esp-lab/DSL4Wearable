@@ -51,13 +51,13 @@ public class I2CLCDCodeCreationEngineImpl extends I2CLCDCodeCreationEngine{
 		if(command.contains("<id>")){
 			command = command.replaceAll("<id>", i2clcd.getId());
 		}
-		if(command.contains("<plitstext>"))
+		if(command.contains("<splittext>"))
 		{
 			String result ="";
 			ArrayList<String> list = splitText(tokens.get(1).instance);
 			if(list.size() > height)
 			{
-				result =	"\n"+i2clcd.getId()+".setCursor(0, 0);"
+				result +="\n"+i2clcd.getId()+".setCursor(0, 0);"
 						+ "\n"+i2clcd.getId()+".print(\"error: String out of range of LCD\");";
 			}
 			else
@@ -70,7 +70,7 @@ public class I2CLCDCodeCreationEngineImpl extends I2CLCDCodeCreationEngine{
 				}
 
 			}
-			command = command.replaceAll("<plitstext>",result);
+			command = command.replaceAll("<splittext>",result);
 		}
 		return command;
 	}
@@ -86,44 +86,36 @@ public class I2CLCDCodeCreationEngineImpl extends I2CLCDCodeCreationEngine{
 	{
 		ArrayList<String> list= new ArrayList<String>();
 		int start=1;
-		for(int i=1 ;i< text.length(); i++)
-		{
-			if((i-start)%(width-1) == 0)
+		if(text.length() <= width)
+			list.add(text.substring(1,text.length()-1));
+		else
+			for(int i=2 ;i< text.length(); i++)
 			{
-				if(text.charAt(i) ==' ' ){
-					list.add(text.substring(start,i));
-					start = i;
-				}
-				else
+				// length of text more than width
+				if((i-start)%(width-1) == 0)
 				{
-					for(int j= i;j>= 0;j--)
-					{
-						if(text.charAt(j)==' ' )
-						{
-							list.add(text.substring(start,j).trim());
-							start =j;
-							break;
-						}
+					if(text.charAt(i) ==' ' ){
+						list.add(text.substring(start,i));
+						start = i;
 					}
+					else
+						for(int j= i;j>= 0;j--)
+						{
+							if(text.charAt(j)==' ' )
+							{
+								list.add(text.substring(start,j).trim());
+								start =j;
+								break;
+							}
+						}
+				}
+				else if(text.length() - start < width)
+				{
+					list.add(text.substring(start,text.length()-1).trim());
+					break;
 				}
 			}
-			if(text.length() - start < width)
-			{
-				if(text.charAt(i)!=' ')
-				{
-					for(int j= i;j>= 0;j--)
-					{
-						if(text.charAt(j)==' ' )
-						{
-							list.add(text.substring(start,text.length()-1).trim());
-							start =text.length();
-							break;
-						}
-					}
-				}
-				break;
-			}
-		}
+
 		return list;
 	}
 }
