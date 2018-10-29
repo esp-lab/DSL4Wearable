@@ -1,6 +1,5 @@
 package iotwearable.editor;
 
-import iotwearable.editor.factory.DecisionFactory;
 import iotwearable.editor.factory.EndPointFactory;
 import iotwearable.editor.factory.OutsideFlowFactory;
 //import iotwearable.editor.factory.OutsideFlowFactory;
@@ -35,10 +34,10 @@ public class StatePalette extends PaletteRoot {
 				ImageDescriptor.createFromFile(this.getClass(),"icons/frame.png"),
 				ImageDescriptor.createFromFile(this.getClass(),"icons/frame.png"));
 		
-		CreationToolEntry _decision = new CombinedTemplateCreationEntry("Decision",
-				"Decision", new DecisionFactory(),
-				ImageDescriptor.createFromFile(this.getClass(),"icons/rhombus.png"),
-				ImageDescriptor.createFromFile(this.getClass(),"icons/rhombus.png"));
+//		CreationToolEntry _decision = new CombinedTemplateCreationEntry("Decision",
+//				"Decision", new DecisionFactory(),
+//				ImageDescriptor.createFromFile(this.getClass(),"icons/rhombus.png"),
+//				ImageDescriptor.createFromFile(this.getClass(),"icons/rhombus.png"));
 		
 		CreationToolEntry _startPoint = new CombinedTemplateCreationEntry("StartPoint",
 				"StartPoint", new StartPointFactory(),
@@ -61,7 +60,7 @@ public class StatePalette extends PaletteRoot {
 				ImageDescriptor.createFromFile(this.getClass(),"icons/linkDashed.png"));
 
 		group.add(_frame);
-		group.add(_decision);
+		//group.add(_decision);
 		group.add(_startPoint);
 		group.add(_endPoint);
 		group.add(_link);
