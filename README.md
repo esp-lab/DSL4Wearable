@@ -10,5 +10,5 @@
 |5	| `Show <String>`	          |Hiển thị chuỗi lên thiết bị hiển thị	|LCD		                       | `Show` "Xin chao"             |
 |6	| `<String> button pressed`	|Mô tả sự kiện nhấn phím	            |keypad		                     | "Cancel" `button pressed`     |
 |7	| `<id> push`	              |Nhận sự kiện nhấn 1 push button		  |push button	                 | button `push`                 |
-|8	| `<string> send`	          |Gửi dữ liệu qua wifi				          |wifi esp8266	                 |"hello" `send`                 |
-|9	| `<string> received`	      |Lắng nghe chuỗi gửi từ wifi khác	    |wifi esp8266	                 |"hello" `received`             |     
+|8	| `<string> send`	          |Gửi dữ liệu qua wifi				          |wifi esp8266	                 | "hello" `send`                |
+|9	| `<string> received`	      |Lắng nghe chuỗi gửi từ wifi khác	    |wifi esp8266	                 | "hello" `received`            |     
