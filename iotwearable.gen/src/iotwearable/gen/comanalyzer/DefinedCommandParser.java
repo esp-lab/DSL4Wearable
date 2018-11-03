@@ -6,6 +6,7 @@ import iotwearable.model.iotw.Button;
 import iotwearable.model.iotw.Device;
 import iotwearable.model.iotw.I2CLCD;
 import iotwearable.model.iotw.Keypad4x4;
+import iotwearable.model.iotw.LED;
 import iotwearable.model.iotw.Mainboard;
 import iotwearable.model.iotw.WifiESP8266;
 
@@ -26,7 +27,7 @@ public class DefinedCommandParser {
 		lexer.tokenizer.add("\\\".*\\\"", TokenType.string_literal);
 		lexer.tokenizer.add("\\\'[a_zA_Z]\\\'", TokenType.character_literal);
 		lexer.tokenizer.add("\\{|\\}", TokenType.separator);
-		lexer.tokenizer.add("\\+|\\-|\\*|\\/|\\=", TokenType.operator);
+		lexer.tokenizer.add("\\+|\\-|\\*|\\/|\\=|\\:", TokenType.operator);
 	}
 
 	public String parse(String command, Mainboard mainboard){
@@ -80,6 +81,14 @@ public class DefinedCommandParser {
 					{
 						for(Device _device: mainboard.getDevices()){
 							if(_device instanceof WifiESP8266){
+								device = _device;
+							}
+						}
+					}
+					if(syntax.equals("<id> : Display") || syntax.equals("<id> : Hidden"))
+					{
+						for(Device _device: mainboard.getDevices()){
+							if(_device instanceof LED){
 								device = _device;
 							}
 						}

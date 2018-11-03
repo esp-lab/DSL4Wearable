@@ -20,6 +20,7 @@ public class StateComponentGraphicalNodeEditPolicy extends
 		ConnectionCreateCommand command = (ConnectionCreateCommand) request
 				.getStartCommand();
 		command.setTarget((Component) getHost().getModel());
+		command.setPointTargetAnchor(request.getLocation());;
 		return command;
 	}
 
@@ -30,6 +31,7 @@ public class StateComponentGraphicalNodeEditPolicy extends
 		command.setSource((Component) getHost().getModel());
 		command.setConnection((Connection) request.getNewObject());
 		command.setStateSchema((StateSchema)getHost().getParent().getModel());
+		command.setPointSourceAnchor(request.getLocation());
 		request.setStartCommand(command);
 		return command;
 	}

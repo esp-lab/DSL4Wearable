@@ -42,27 +42,29 @@ public class StateSchemaAnalyzer {
 			return;
 		}
 		Queue<StateComponent> open = new LinkedList<StateComponent>();
-		open.add((StateComponent)startPoint.getOutgoings().get(0).getTarget());
+		open.add((StateComponent)startPoint.getOutgoings().get(0).getTarget());//get then first StateFrame connect with StartPoint
 		List<StateComponent> closed = new ArrayList<StateComponent>();
 		StateComponent currentNode = null;
 		int numberOfState = 0;
 		while(!open.isEmpty()){
 			currentNode = open.poll();
+			if(currentNode == null) return;
 			//Create code with state frame
 			if(currentNode instanceof StateFrame){
 				analyzeState((StateFrame)currentNode, numberOfState);
-				numberOfState++;
 				//mark the node been visited.
 				closed.add(currentNode);
 				//Find for all the vertices adjacent to this currentNode
 				for(Connection conn : currentNode.getOutgoings()){
-					if(conn.getTarget() instanceof StateComponent){
-						if(!closed.contains((StateComponent)conn.getTarget())){
+					if(conn.getTarget() instanceof StateFrame){
+						if(!closed.contains((StateComponent)conn.getTarget()) && !open.contains((StateComponent)conn.getTarget())){
 							open.add((StateComponent)conn.getTarget());
 						}
 					}
 				}
+				numberOfState++;
 			}
+			currentNode = null;
 		}
 		generateCodeSwitch(closed);	
 		analyzeEvent();
@@ -199,9 +201,11 @@ public class StateSchemaAnalyzer {
 								}
 								else{
 									//Create code for the event by the system.
-									String resultSub = "//Event: " + conn.getLabel().trim()+"\n"
-											+"state"+ ((StateFrame)conn.getTarget()).getName()+"();\n";
-									codeWriter.write(resultSub,"//<case"+component.getId()+">");
+//									String resultSub = "//Event: " + conn.getLabel().trim()+"\n"
+//											+"state"+ ((StateFrame)conn.getTarget()).getName()+"();\n";
+//									codeWriter.write(resultSub,"//<case"+component.getId()+">");
+									GenLogger.addLog("Event from " + ((StateFrame)conn.getSource()).getName()
+											+ " to " + ((StateFrame)conn.getTarget()).getName() + " Not defined");
 								}
 
 							}

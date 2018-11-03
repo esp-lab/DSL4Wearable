@@ -41,6 +41,16 @@ public abstract class LEDCodeCreationEngine extends DeviceCodeCreationEngine{
 					+ "\ndelay(1000);"
 					+ "\n}";
 		}
+		else if(syntax.equals("<id> : Display") || syntax.equals("<id> : Hidden")){
+			code = "if(digitalRead("+tokens.get(0).instance+")==";
+			if(tokens.get(2).instance.equals("Display")){
+				code += "HIGH";
+			}
+			else if(tokens.get(2).instance.equals("Hidden")){
+				code += "LOW";
+			}
+			code += "){\n<content>\n}";
+		}
 		return code;
 	}
 }
