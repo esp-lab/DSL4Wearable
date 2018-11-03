@@ -37,8 +37,12 @@ public class ConnectionBendpointEditPolicy extends BendpointEditPolicy{
 	protected Command getMoveBendpointCommand(BendpointRequest request) {
 		MoveBendpointCommand command = new MoveBendpointCommand();
 		Point p = request.getLocation();
+		org.eclipse.draw2d.Connection conn = getConnection();
+	    Point newPoint = p;
+	    conn.translateToRelative(newPoint);
+
 		command.setConnection((Connection) request.getSource().getModel());
-		command.setNewLocation(p);
+		command.setNewLocation(newPoint);
 		command.setIndex(request.getIndex());
 		return command;
 	}
