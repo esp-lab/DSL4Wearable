@@ -40,10 +40,6 @@ public class StateSchemaContextMenu extends ContextMenuProvider {
 		if(action.isEnabled() && display)
 			menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
 
-		action = getActionRegistry().getAction(StateSchemaContextMenuAction.ID_AddDecision);
-		if(action.isEnabled()&& display)
-			menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
-
 		action = getActionRegistry().getAction(StateSchemaContextMenuAction.ID_AddEndPoint);
 		if(action.isEnabled()&& display)
 			menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);

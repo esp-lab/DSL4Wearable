@@ -1,15 +1,5 @@
 package iotwearable.editor;
 
-//import iotwearable.editor.utilities.ProjectExplorerSelectionListener;
-//import iotwearable.editor.utilities.ResourceListener;
-
-//import org.eclipse.core.resources.IResourceChangeEvent;
-//import org.eclipse.core.resources.IResourceChangeListener;
-//import org.eclipse.core.resources.IWorkspace;
-//import org.eclipse.core.resources.ResourcesPlugin;
-//import org.eclipse.ui.IPageLayout;
-//import org.eclipse.ui.ISelectionService;
-//import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -22,7 +12,7 @@ public class Activator extends AbstractUIPlugin {
 	public static final String PLUGIN_ID = "iotwearable.editor"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static  Activator plugin;
 	
 	/**
 	 * The constructor
@@ -34,6 +24,7 @@ public class Activator extends AbstractUIPlugin {
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
@@ -43,6 +34,7 @@ public class Activator extends AbstractUIPlugin {
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
