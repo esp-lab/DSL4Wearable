@@ -38,7 +38,7 @@ public class PushButtonCodeCreationEngine extends DeviceCodeCreationEngine{
 	@Override
 	public String createFromCommand(String syntax, LinkedList<Token> tokens) {
 		String code = "";
-		if (syntax.equals("<String> push")) {
+		if (syntax.equals("<id> push")) {
 			code = "if(digitalRead("+button.getId()+") == HIGH){\n"
 					+ "<content>"
 					+ "\n}";

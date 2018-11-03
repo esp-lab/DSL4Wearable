@@ -59,7 +59,7 @@ public class DefinedCommandParser {
 							}
 						}
 					}
-					if(syntax.equals("<String> push")){
+					if(syntax.equals("<id> push")){
 						for(Device _device: mainboard.getDevices()){
 							if(_device instanceof Button){
 								device = _device;
