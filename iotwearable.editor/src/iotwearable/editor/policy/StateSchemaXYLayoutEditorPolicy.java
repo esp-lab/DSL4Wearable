@@ -2,7 +2,6 @@ package iotwearable.editor.policy;
 
 import iotwearable.editor.command.StateComponentChangeConstraintsCommand;
 import iotwearable.editor.command.StateComponentCreateCommand;
-import iotwearable.model.iotw.Decision;
 import iotwearable.model.iotw.EndPoint;
 import iotwearable.model.iotw.StartPoint;
 import iotwearable.model.iotw.StateComponent;
@@ -46,13 +45,12 @@ public class StateSchemaXYLayoutEditorPolicy extends XYLayoutEditPolicy {
 			_constraints = DEFAULT_DIMENSION_CIRCLE;
 			flag = true;
 		}
-		else if(request.getNewObjectType().equals(Decision.class)
-				|| request.getNewObjectType().equals(StartPoint.class)){
+		else if(request.getNewObjectType().equals(StartPoint.class)){
 			_constraints = DEFAULT_DIMENSION_CIRCLE;
 			flag = true;
 		}
 		if (flag) {
-			flag = !flag;
+			flag = false;
 			StateComponentCreateCommand createCommand = new StateComponentCreateCommand();
 			Point clickLocation = request.getLocation();
 			((GraphicalEditPart) getHost()).getFigure().translateFromParent(

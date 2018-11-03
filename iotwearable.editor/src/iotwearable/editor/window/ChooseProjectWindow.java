@@ -25,7 +25,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.UIManager;
-import javax.swing.event.ChangeEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeCellEditor;
@@ -33,13 +32,10 @@ import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
 public class ChooseProjectWindow  {
 	private List<ProjectManager.Node> listProject;
-	private JPanel panel;
-	private List<Object> rootNodes;
-	private Vector rootVector;
-	private List<Category> Project;
+	private List<Category> Projects;
 	public ChooseProjectWindow(List<ProjectManager.Node> listProject) {
 		this.listProject = listProject;
-		Project = new ArrayList<Category>();
+		Projects = new ArrayList<>();
 
 	}
 	/**
@@ -58,7 +54,7 @@ public class ChooseProjectWindow  {
 					"Select project to generate code",
 					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 			if (selection == JOptionPane.OK_OPTION) {
-				if(Project.size()!=2 || !Project.get(0).getProjectName().equals(Project.get(1).getProjectName()))
+				if(Projects.size()!=2 || !Projects.get(0).getProjectName().equals(Projects.get(1).getProjectName()))
 				{
 					JOptionPane.showMessageDialog(null,
 							MessageContent.ErrorChooseProject,
@@ -67,10 +63,10 @@ public class ChooseProjectWindow  {
 				}
 				else
 				{
-					Project.get(0).getFile().add(Project.get(1).getFile().get(0));
-					Project.remove(1);
+					Projects.get(0).getFile().add(Projects.get(1).getFile().get(0));
+					Projects.remove(1);
 				}
-				Category category = new Category(Project.get(0).projectName,Project.get(0).getFile());
+				Category category = new Category(Projects.get(0).getProjectName(),Projects.get(0).getFile());
 				return category;
 			} else {
 				return null;
@@ -84,12 +80,12 @@ public class ChooseProjectWindow  {
 	 */
 	public JPanel initMenuProject()
 	{
-		panel=	new JPanel();
+		JPanel	panel=	new JPanel();
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		panel.setLayout(new GridLayout(1,1,10,10));
-		rootNodes = new ArrayList<Object>();;
+		List<Object> rootNodes = new ArrayList<>();
 		for (ProjectManager.Node project : listProject) {
-			List<Object> list = new ArrayList<Object>();
+			List<Object> list = new ArrayList<>();
 			for(File fileName : project.getChild())
 			{
 				CheckBoxNode checkBoxNode = new CheckBoxNode(fileName.getName(), false) ;
@@ -98,7 +94,7 @@ public class ChooseProjectWindow  {
 			Vector projectName = new NamedVector(project.getParrent(),list);
 			rootNodes.add(projectName);
 		}
-		rootVector = new NamedVector("Root", rootNodes);
+		Vector	rootVector = new NamedVector("Root", rootNodes);
 		JTree	tree = new JTree(rootVector);
 
 		CheckBoxNodeRenderer renderer = new CheckBoxNodeRenderer();
@@ -118,8 +114,11 @@ public class ChooseProjectWindow  {
 
 		private DefaultTreeCellRenderer nonLeafRenderer = new DefaultTreeCellRenderer();
 
-		Color selectionBorderColor, selectionForeground, selectionBackground,
-		textForeground, textBackground;
+		Color selectionBorderColor, 
+		selectionForeground, 
+		selectionBackground,
+		textForeground, 
+		textBackground;
 
 		protected JCheckBox getLeafRenderer() {
 			return leafRenderer;
@@ -164,7 +163,7 @@ public class ChooseProjectWindow  {
 					leafRenderer.setBackground(textBackground);
 				}
 
-				if ((value != null) && (value instanceof DefaultMutableTreeNode)) {
+				if (value instanceof DefaultMutableTreeNode) {
 					Object userObject = ((DefaultMutableTreeNode) value)
 							.getUserObject();
 					if (userObject instanceof CheckBoxNode) {
@@ -186,8 +185,7 @@ public class ChooseProjectWindow  {
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
-		CheckBoxNodeRenderer renderer = new CheckBoxNodeRenderer();
-		ChangeEvent changeEvent = null;
+		private CheckBoxNodeRenderer renderer = new CheckBoxNodeRenderer();
 		JTree tree;
 		public CheckBoxNodeEditor(JTree tree) {
 			this.tree = tree;
@@ -228,14 +226,14 @@ public class ChooseProjectWindow  {
 					Category category = new Category(((DefaultMutableTreeNode)value).getParent().toString(),file);
 					if(itemEvent.getStateChange() == 1)
 					{
-						if(Project.size() == 0)
+						if(Projects.isEmpty())
 						{
-							Project.add(category);
+							Projects.add(category);
 						}
-						else if(!Project.contains(category))
+						else if(!Projects.contains(category))
 						{
 							boolean isAdd = true;
-							for(Category cat : Project)
+							for(Category cat : Projects)
 							{
 								if(!cat.getProjectName().equals(((DefaultMutableTreeNode)value).getParent().toString()) 
 										|| cat.getFile().get(0).equals(((JCheckBox)itemEvent.getItem()).getText()))
@@ -246,12 +244,12 @@ public class ChooseProjectWindow  {
 
 							}
 							if(isAdd)
-								Project.add(category);
+								Projects.add(category);
 						}
 					}
-					if(itemEvent.getStateChange() != 1 && Project.contains(category))
+					if(itemEvent.getStateChange() != 1 && Projects.contains(category))
 					{
-							Project.remove(category);
+						Projects.remove(category);
 					}
 					if (stopCellEditing()) {
 						fireEditingStopped();
@@ -264,7 +262,7 @@ public class ChooseProjectWindow  {
 
 			return editor;
 		}
-		
+
 	}
 
 	public class CheckBoxNode  {
@@ -313,7 +311,7 @@ public class ChooseProjectWindow  {
 				add(object);
 			}
 		}
-
+		@Override
 		public String toString() {
 			return name ;
 		}

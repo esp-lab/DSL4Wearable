@@ -14,7 +14,7 @@ public class ConnectionDirectEditPolicy extends DirectEditPolicy {
 		Connection connection = (Connection)getHost().getModel();
 		ConnectionRenameCommand command = new ConnectionRenameCommand();
 		command.setConnection(connection);
-		command.setLabel(value);
+		command.setNewLabel(value);
 		return command;
 	}
 

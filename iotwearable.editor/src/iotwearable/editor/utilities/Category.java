@@ -1,8 +1,8 @@
 package iotwearable.editor.utilities;
 import java.util.List;
 public class Category {
-	public List<String> file;
-	public String projectName;
+	private List<String> file;
+	private String projectName;
 	public List<String> getFile() {
 		return file;
 	}

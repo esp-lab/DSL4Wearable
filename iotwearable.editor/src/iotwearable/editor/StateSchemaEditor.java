@@ -269,8 +269,6 @@ public class StateSchemaEditor extends GraphicalEditorWithPalette {
 		super.createActions();
 		IAction action = new StateSchemaContextMenuAction(this, StateSchemaContextMenuAction.ID_AddStateFrame, schema);
 		getActionRegistry().registerAction(action);
-		action = new  StateSchemaContextMenuAction(this,StateSchemaContextMenuAction.ID_AddDecision, schema);
-		getActionRegistry().registerAction(action);
 		action = new  StateSchemaContextMenuAction(this,StateSchemaContextMenuAction.ID_AddEndPoint, schema);
 		getActionRegistry().registerAction(action);
 		action = new  StateSchemaContextMenuAction(this,StateSchemaContextMenuAction.ID_AddStartPoint, schema);
