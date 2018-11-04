@@ -95,33 +95,27 @@ public class I2CLCDCodeCreationEngineImpl extends I2CLCDCodeCreationEngine{
 			list.add(text);
 		}
 		else
-			for(int i=2 ;i< text.length(); i++)
-			{
+			for(int i=1 ;i< text.length(); i++)	{
 				// length of text more than width
-				if((i-start)%(width-1) == 0)
-				{
+				if((i-start)%(width-1) == 0){
 					if(text.charAt(i) ==' ' ){
 						list.add(text.substring(start,i));
 						start = i;
 					}
 					else
-						for(int j= i;j>= 0;j--)
-						{
-							if(text.charAt(j)==' ' )
-							{
+						for(int j= i;j>= 0;j--)	{
+							if(text.charAt(j)==' ' ){
 								list.add(text.substring(start,j).trim());
 								start =j;
 								break;
 							}
 						}
 				}
-				else if(text.length() - start < width)
-				{
-					list.add(text.substring(start,text.length()-1).trim());
+				else if(text.length() - start < width)	{
+					list.add(text.substring(start,text.length()).trim());
 					break;
 				}
 			}
-
 		return list;
 	}
 }
