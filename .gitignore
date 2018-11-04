@@ -53,3 +53,4 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+/.sonarlint/default/.sonartmp_7144388316389498583
