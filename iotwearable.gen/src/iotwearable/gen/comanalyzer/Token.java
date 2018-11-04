@@ -11,8 +11,9 @@ package iotwearable.gen.comanalyzer;
  * 
  */
 public class Token {
-	public final TokenType type;
-	public final String instance;
+	public  TokenType type;
+	public  String instance;
+
 	
 	public Token(TokenType type, String instance) {
 		this.type = type;

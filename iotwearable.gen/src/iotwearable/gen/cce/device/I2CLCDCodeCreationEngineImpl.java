@@ -1,6 +1,8 @@
 package iotwearable.gen.cce.device;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+
 import iotwearable.gen.comanalyzer.Token;
 import iotwearable.model.iotw.I2CLCD;
 
@@ -51,28 +53,30 @@ public class I2CLCDCodeCreationEngineImpl extends I2CLCDCodeCreationEngine{
 		if(command.contains("<id>")){
 			command = command.replaceAll("<id>", i2clcd.getId());
 		}
-		if(command.contains("<splittext>"))
-		{
+		if(command.contains("<splittext>"))	{
 			String result ="";
-			ArrayList<String> list = splitText(tokens.get(1).instance);
-			if(list.size() > height)
-			{
+			List<String> list = splitText(tokens.get(1).instance);
+			if(list.size() > height){
 				result +="\n"+i2clcd.getId()+".setCursor(0, 0);"
 						+ "\n"+i2clcd.getId()+".print(\"error: String out of range of LCD\");";
 			}
-			else
-			{
-
-				for(int i =0;i< list.size();i++)
-				{
+			else {
+				for(int i =0;i< list.size();i++){
 					result +=	"\n"+i2clcd.getId()+".setCursor(0, "+i+");"
 							+ "\n"+i2clcd.getId()+".print(\""+list.get(i)+"\");";
 				}
-
 			}
 			command = command.replaceAll("<splittext>",result);
 		}
 		return command;
+	}
+	private List<String> splitText(String text) {
+		List<String> list = new ArrayList<>();
+		String [] arrayContent = text.split("\\\\n");
+		for(int i = 0;i < arrayContent.length; i++) {
+			list.addAll(dropText(arrayContent[i]));
+		}
+		return list;
 	}
 	@Override
 	public String createPrototype() {
@@ -82,12 +86,14 @@ public class I2CLCDCodeCreationEngineImpl extends I2CLCDCodeCreationEngine{
 	public String createMethodImpl() {
 		return "";
 	}
-	private ArrayList<String> splitText(String text)
+	private ArrayList<String> dropText(String text)
 	{
 		ArrayList<String> list= new ArrayList<String>();
-		int start=1;
-		if(text.length() <= width)
-			list.add(text.substring(1,text.length()-1));
+		text = text.trim().replaceAll("\"","");
+		int start=0;
+		if(text.length() <= width) {
+			list.add(text);
+		}
 		else
 			for(int i=2 ;i< text.length(); i++)
 			{
