@@ -1,5 +1,8 @@
 .metadata
-iotwearable.*/bin/
+/bin/
+.vs
+.sonarlint
+
 tmp/
 *.tmp
 *.bak
