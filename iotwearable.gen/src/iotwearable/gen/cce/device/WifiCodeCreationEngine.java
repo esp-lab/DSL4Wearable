@@ -25,7 +25,7 @@ public abstract class WifiCodeCreationEngine extends DeviceCodeCreationEngine{
 	@Override
 	public String createDefine() {
 		String content = "/*Define <type> - <<id>> */\n";
-		content +="\n#define TIMEOUT			3000"
+		content +="\n#define TIMEOUT 3000"
 				+ "\n#define RX <<RX>> // pin TX of ESP8266 connect to pin <<RX>> of Arduino"
 				+ "\n#define TX <<TX>> //pin RX of ESP8266 connect to pin <<TX>> of Arduino"
 				+ "\nSoftwareSerial <<id>>(RX,TX); ";
