@@ -4,14 +4,13 @@ public abstract class WifiCodeCreationEngine extends DeviceCodeCreationEngine{
 
 	@Override
 	public String createPrototype() {
-		return  "//Read response from esp. Arduino is a receiver"
-				+ "\nString readResponse();"
-				+ "\n//Arduino send command to the esp"
-				+ "\nString sendCommand(String command);"
-				+ "\n//Close connection with a link id"
-				+ "\nvoid closeConnect();"
-				+ "\n void sendResponse(String content);"
-				+ "\nvoid HandleRequest(String res);";
+		return   "\nString readResponse();\n"
+				+ "\n//Arduino send command to the esp\n"
+				+ "\nString sendCommand(String command);\n"
+				+ "\n//Close connection with a link id\n"
+				+ "\nvoid closeConnect();\n"
+				+ "\n void sendResponse(String content);\n"
+				+ "\nvoid HandleRequest(String res);\n";
 	}
 	@Override
 	public String createInclude() {
@@ -24,7 +23,7 @@ public abstract class WifiCodeCreationEngine extends DeviceCodeCreationEngine{
 	}
 	@Override
 	public String createDefine() {
-		String content = "/*Define <type> - <<id>> */\n";
+		String content = "//Define <type> - <<id>>\n";
 		content +="\n#define TIMEOUT 3000"
 				+ "\n#define RX <<RX>> // pin TX of ESP8266 connect to pin <<RX>> of Arduino"
 				+ "\n#define TX <<TX>> //pin RX of ESP8266 connect to pin <<TX>> of Arduino"

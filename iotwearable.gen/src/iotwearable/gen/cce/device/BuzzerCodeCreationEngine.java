@@ -24,7 +24,7 @@ public class BuzzerCodeCreationEngine extends DeviceCodeCreationEngine{
 
 	@Override
 	public String createDefine() {
-		String content = "/*Define "+buzzer.getName()+" output*/\n"
+		String content = "// Define "+buzzer.getName()+" output\n"
 		+ "#define " + buzzer.getId()+"  "+buzzer.getMainboard().findPin(buzzer.getPinConnecteds().get(0)).getName();
 		return content;
 	}

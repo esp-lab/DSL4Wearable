@@ -8,7 +8,7 @@ public abstract class BluetoothCodeCreationEngine extends DeviceCodeCreationEngi
 	
 	@Override
 	public String createDefine() {
-		String content = "/*Define <type>*/\n"
+		String content = "//Define <type>\n"
 		+ "SoftwareSerial <id>(<pinRX>, <pinTX>);\n";
 		return content;
 	}

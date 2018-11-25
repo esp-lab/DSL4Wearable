@@ -125,8 +125,7 @@ public class WifiESP8266V1CodeCreationEngine extends WifiCodeCreationEngine {
 
 	private String readResponse()
 	{
-		return "String readResponse()"
-				+ "\n{"
+		return "String readResponse() {"
 				+ "\nString res = \"\";"
 				+ "\nlong timeout = millis() + TIMEOUT;"
 				+ "\nwhile (millis() < timeout)"
@@ -142,16 +141,14 @@ public class WifiESP8266V1CodeCreationEngine extends WifiCodeCreationEngine {
 	}
 	private String sendCommand() {
 		return "//Send command to esp."
-				+ "\nString sendCommand(String command)"
-				+ "\n{"
+				+ "\nString sendCommand(String command) {"
 				+ "\n"+wifiESP8266.getId()+".println(command);"
 				+ "\nreturn readResponse();"
 				+ "\n}";
 	}
 	private String closeConnect() {
 		return "//Close connection with a link id"
-				+ "\nvoid closeConnect()"
-				+ "\n{"
+				+ "\nvoid closeConnect() {"
 				+"\nSerial.println(sendCommand(\"AT+CIPCLOSE=5\"));"
 				+ "\n}";
 	}
@@ -159,7 +156,7 @@ public class WifiESP8266V1CodeCreationEngine extends WifiCodeCreationEngine {
 	private String HandleRequest() {
 		String result ="";
 		if(cWMode() >=2)
-			result+= "void HandleRequest(String res){"
+			result+= "void HandleRequest(String res) {"
 					+ "\nif (res.indexOf(\"GET / HTTP/1.1\") >= 0)"
 					+ "\n	{"
 					+ "\nString content = \"Welcome to ESP-LAB\";"
@@ -181,20 +178,19 @@ public class WifiESP8266V1CodeCreationEngine extends WifiCodeCreationEngine {
 					+ "\ndelay(300); "
 					+ "\n}";
 		else 
-			result+=  "void HandleRequest(String res){"
+			result+=  "\nvoid HandleRequest(String res) {"
 					+ "\nif(res.indexOf(\"+IPD\") >= 0)"
 					+ "\n{"
 					+ "\n//<requestWifi>"
 					+ "\n}"
 					+ "\ndelay(300);"
-					+ "\n} ";
+					+ "\n} \n";
 		return result;
 
 	}
 	private String sendResponseClient()
 	{
-		String result ="void sendResponse(String content)"
-				+ "\n{";
+		String result ="void sendResponse(String content) {";
 		result	+= "\ncloseConnect();"
 				+ "\nSerial.println(sendCommand(\"AT+CIPSTART=\\\""+getProtocol() +"\\\",\\\""+wifiESP8266.getIP()+"\\\","+wifiESP8266.getPort()+"\"));"
 				+"\nString cmd = \"AT+CIPSEND=\";"
@@ -206,20 +202,17 @@ public class WifiESP8266V1CodeCreationEngine extends WifiCodeCreationEngine {
 	}
 	private String sendResponseServer()
 	{
-		String result ="void sendResponse(String content)"
-				+ "\n{"
+		String result ="\nvoid sendResponse(String content) {"
 				+	"\nString cmd = \"AT+CIPSEND=0,\";"
 				+ "\ncmd += content.length();"
 				+ "\nSerial.println(sendCommand(cmd));"
 				+ "\nSerial.println(sendCommand(content));"
 				+ "\n  closeConnect();"
-				+"\n}";
+				+"\n}\n";
 		return result;
 	}
 	private String getProtocol() {
-		if(wifiESP8266.getProtocol().getName().equals("TCP"))
-			return "TCP";
-		return "UDP";
+		return wifiESP8266.getProtocol().getName();
 	}
 	private String getPinMainboard(String idConnect) {
 		for(Pin pin : wifiESP8266.getMainboard().getPinConnecteds())

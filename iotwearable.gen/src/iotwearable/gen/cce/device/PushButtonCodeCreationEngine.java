@@ -20,9 +20,10 @@ public class PushButtonCodeCreationEngine extends DeviceCodeCreationEngine{
 
 	@Override
 	public String createDefine() {
-		String content = "/*Define "+button.getName()+"  output*/\n"
-		+ "const int " + button.getId()+" = "+button.getMainboard().findPin(button.getPinConnecteds().get(0)).getName()+";";
-		return content;
+		StringBuilder content = new StringBuilder();
+		 content.append("// Define "+button.getName()+"  output\n");
+		 content.append("const int " + button.getId()+" = "+button.getMainboard().findPin(button.getPinConnecteds().get(0)).getName()+";");
+		return content.toString();
 	}
 
 	@Override

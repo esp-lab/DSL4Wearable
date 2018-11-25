@@ -11,7 +11,7 @@ public abstract class I2CLCDCodeCreationEngine extends DeviceCodeCreationEngine{
 	}
 	@Override
 	public String createDefine() {
-		String content = "/*Define LiquidCrystal_I2C - <id> */\n"
+		String content = "// Define LiquidCrystal_I2C - <id> \n"
 				+ "LiquidCrystal_I2C <id>(0x27, <width>, <height>);" ;
 		return content;
 	}

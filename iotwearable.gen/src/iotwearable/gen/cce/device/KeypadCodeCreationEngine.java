@@ -12,9 +12,8 @@ public abstract class KeypadCodeCreationEngine extends DeviceCodeCreationEngine{
 	}
 	@Override
 	public String createDefine() {
-		String content = "/*Define kepad4x4 - <id>\n"
-				+ "<descriptionKey>"
-				+ "*/\n";
+		String content = "//Define kepad4x4 - <id> \n"
+				+ "<descriptionKey>\n";
 		content += "char <id>_keys[<row>][<col>] ={<keys>};\n";
 		content += "byte <id>_rowPins[<row>] = {<rowPins>};\n"
 			+ "byte <id>_columnPins[<col>] = {<columnPins>};\n";
