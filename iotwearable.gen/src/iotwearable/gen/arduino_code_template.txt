@@ -10,27 +10,34 @@ Numbered starting at 0
 stateCurrent is a variable that stores the current state of the application.
 <desState_iotw>
 */
+
 int currentState = 0;
+
 int nextState = -1;
 
 /*--------------------Define--------------------*/
+
 <define_iotw>
+
 /*--------------------END Define--------------------*/
 
+
 /*--------------------Prototype--------------------*/
+
 <prototype_iotw>
+
 /*--------------------END Prototype--------------------*/
 
-void setup()
-{
+void setup() {
 <setup_iotw>
 }
 
-void loop()
-{
+void loop() {
 <loop_iotw>
 }
 
 /*--------------------Implement--------------------*/
+
 <impl_iotw>
+
 /*--------------------END Implement--------------------*/

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import iotwearable.editor.utilities.Category;
 import iotwearable.editor.utilities.MessageContent;
@@ -47,7 +48,11 @@ public class GenerateCodeCommand extends Command{
 				}
 			}
 			if(!mainboard.isEmpty() && !state.isEmpty()){
-				generateSourceCode(mainboard, state, project);
+				CodeGeneration gen = new CodeGeneration();
+				String sourceCode = gen.generate(mainboard, state);
+				
+				generateSources(gen.splitCode(sourceCode), project.getProjectName().trim());
+				generateSourceCode(sourceCode, project.getProjectName().trim());
 				generateManual(mainboard, project);
 				generateLogBuilder(project);
 			}
@@ -58,17 +63,32 @@ public class GenerateCodeCommand extends Command{
 		}
 
 	}
-	private void generateSourceCode( String mainboard,String state,Category project ){
-		CodeGeneration gen = new CodeGeneration();
-		String sourceCode = gen.generate(mainboard, state);
-		sourceCode = sourceCode.replace("<project_iotw>", project.getProjectName());
+	private void generateSourceCode(String sourceCode, String projectName){
+	
+		sourceCode = sourceCode.replace("<project_iotw>", projectName);
 		
 		try {
-			FileUtils.writeFile(manager.getProject(project.getProjectName()).getLocation().toString()+"/source_code_"+project.getProjectName().trim()+".ino", sourceCode);
-			manager.refreshProject(project.getProjectName());
+			FileUtils.writeFile(manager.getProject(projectName).getLocation().toString()+"/source_code_"+projectName+".ino", sourceCode);
+			manager.refreshProject(projectName);
 		} catch (IOException e) {
 			MessageWindow.show(GENERATE_CODE, MessageContent.ErrorReadFileMainboard);
 		}
+	}
+	private void generateSources(List<String> sourceCode, String projectName) {
+		// write config file
+		try {
+			FileUtils.writeFile(manager.getProject(projectName).getLocation().toString()+"/config.h", sourceCode.get(0));
+			manager.refreshProject(projectName);
+		} catch (IOException e) {
+			MessageWindow.show(GENERATE_CODE, MessageContent.ErrorReadFileMainboard);
+		}
+		// write app file 
+		try {
+				FileUtils.writeFile(manager.getProject(projectName).getLocation().toString()+"/App.ino", sourceCode.get(1));
+				manager.refreshProject(projectName);
+			} catch (IOException e) {
+				MessageWindow.show(GENERATE_CODE, MessageContent.ErrorReadFileMainboard);
+			}
 	}
 	private void generateManual(String mainboard, Category project) {
 		Manual manualGenerator = new Manual(mainboard);

@@ -58,56 +58,56 @@ public class Keypad4x4CodeCreationEngine extends KeypadCodeCreationEngine {
 	}
 	
 	public String descriptionKey(){
-		String desKey = "";
+		StringBuilder desKey = new StringBuilder();
 		if(!keypad.getNameButton0().isEmpty()){
-			desKey += "Button 0 : " + keypad.getNameButton0()+"\n";
+			desKey.append("Button 0 : " + keypad.getNameButton0()+"\n");
 		}
 		if(!keypad.getNameButton1().isEmpty()){
-			desKey += "Button 1 : " + keypad.getNameButton1()+"\n";
+			desKey.append("Button 1 : " + keypad.getNameButton1()+"\n");
 		}
 		if(!keypad.getNameButton2().isEmpty()){
-			desKey += "Button 2 : " + keypad.getNameButton2()+"\n";
+			desKey.append("Button 2 : " + keypad.getNameButton2()+"\n");
 		}
 		if(!keypad.getNameButton3().isEmpty()){
-			desKey += "Button 3 : " + keypad.getNameButton3()+"\n";
+			desKey.append("Button 3 : " + keypad.getNameButton3()+"\n");
 		}
 		if(!keypad.getNameButton4().isEmpty()){
-			desKey += "Button 4 : " + keypad.getNameButton4()+"\n";
+			desKey.append("Button 4 : " + keypad.getNameButton4()+"\n");
 		}
 		if(!keypad.getNameButton5().isEmpty()){
-			desKey += "Button 5 : " + keypad.getNameButton5()+"\n";
+			desKey.append("Button 5 : " + keypad.getNameButton5()+"\n");
 		}
 		if(!keypad.getNameButton6().isEmpty()){
-			desKey += "Button 6 : " + keypad.getNameButton6()+"\n";
+			desKey.append("Button 6 : " + keypad.getNameButton6()+"\n");
 		}
 		if(!keypad.getNameButton7().isEmpty()){
-			desKey += "Button 7 : " + keypad.getNameButton7()+"\n";
+			desKey.append("Button 7 : " + keypad.getNameButton7()+"\n");
 		}
 		if(!keypad.getNameButton8().isEmpty()){
-			desKey += "Button 8 : " + keypad.getNameButton8()+"\n";
+			desKey.append("Button 8 : " + keypad.getNameButton8()+"\n");
 		}
 		if(!keypad.getNameButton9().isEmpty()){
-			desKey += "Button 9 : " + keypad.getNameButton9()+"\n";
+			desKey.append("Button 9 : " + keypad.getNameButton9()+"\n");
 		}
 		if(!keypad.getNameButtonA().isEmpty()){
-			desKey += "Button A : " + keypad.getNameButtonA()+"\n";
+			desKey.append("Button A : " + keypad.getNameButtonA()+"\n");
 		}
 		if(!keypad.getNameButtonB().isEmpty()){
-			desKey += "Button B : " + keypad.getNameButtonB()+"\n";
+			desKey.append("Button B : " + keypad.getNameButtonB()+"\n");
 		}
 		if(!keypad.getNameButtonC().isEmpty()){
-			desKey += "Button C : " + keypad.getNameButtonC()+"\n";
+			desKey.append("Button C : " + keypad.getNameButtonC()+"\n");
 		}
 		if(!keypad.getNameButtonD().isEmpty()){
-			desKey += "Button D : " + keypad.getNameButtonD()+"\n";
+			desKey.append("Button D : " + keypad.getNameButtonD()+"\n");
 		}
 		if(!keypad.getNameButtonAsterisk().isEmpty()){
-			desKey += "Button * : " + keypad.getNameButtonAsterisk()+"\n";
+			desKey.append("Button * : " + keypad.getNameButtonAsterisk()+"\n");
 		}
 		if(!keypad.getNameButtonHash().isEmpty()){
-			desKey += "Button # : " + keypad.getNameButtonHash()+"\n";
+			desKey.append("Button # : " + keypad.getNameButtonHash()+"\n");
 		}
-		return desKey;
+		return desKey.toString();
 	}
 
 	@Override

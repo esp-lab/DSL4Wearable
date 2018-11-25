@@ -8,7 +8,7 @@ public abstract class LEDCodeCreationEngine extends DeviceCodeCreationEngine{
 
 	@Override
 	public String createDefine() {
-		String content = "/*Define LED - <id> output*/\n";
+		String content = "//Define LED - <id> output\n";
 		content += "const int <id> = <pin>;";
 		return content;
 	}
