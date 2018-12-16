@@ -94,83 +94,83 @@ public class DefinedCommandParser {
 						}
 					}
 				}
-			
-			if(device != null){
-				codeCreationEngine = CodeCreationEngineFactory.create(device);
-				if(codeCreationEngine != null){
-					result = codeCreationEngine.createFromCommand(syntax, lexer.getTokens());
-					return result;
-				}
-			}
-		}
-	}
-	return "";
-}
 
-private String getIdIdentifier(LinkedList<Token> tokens){
-	for(Token token : tokens){
-		if(token.type.equals(TokenType.id_identifier)){
-			return token.instance;
-		}
-	}
-	return "";
-}
-//Get device with id
-private Device getDevice(Mainboard mainboard, String id){
-	for(Device device : mainboard.getDevices()){
-		if(device.getId().equals(id)){
-			return device;
-		}
-	}
-	return null;
-}
-
-/**
- * Create a syntax from a linkedlist {@linkplain Token}
- * 
- * @param tokens
- */
-private String createSyntax(LinkedList<Token> tokens) {
-	String syntax = "";
-	Token token;
-	if (!tokens.isEmpty()) {
-		for (int i = 0; i < tokens.size(); i++) {
-			token = tokens.get(i);
-			if (token.type.equals(TokenType.id_identifier)) {
-				syntax += ' ' + "<id>";
-			} else if (token.type.equals(TokenType.keyword)) {
-				syntax += ' ' + token.instance;
-			} else if (token.type.equals(TokenType.separator)) {
-				syntax += token.instance;
-			}
-			else if( token.type.equals(TokenType.operator)){
-				syntax += ' ' + token.instance;
-			}
-			else {
-				if (i >= 1) {
-					if (tokens.get(i - 1).type.equals(TokenType.keyword)) {
-						syntax += ' ';
+				if(device != null){
+					codeCreationEngine = CodeCreationEngineFactory.create(device);
+					if(codeCreationEngine != null){
+						result = codeCreationEngine.createFromCommand(syntax, lexer.getTokens());
+						return result;
 					}
 				}
-				if (token.type.equals(TokenType.integer_literal)) {
-					syntax += "<integer>";
-				} else if (token.type.equals(TokenType.string_literal)) {
-					syntax += "<String>";
+			}
+		}
+		return "";
+	}
+
+	private String getIdIdentifier(LinkedList<Token> tokens){
+		for(Token token : tokens){
+			if(token.type.equals(TokenType.id_identifier)){
+				return token.instance;
+			}
+		}
+		return "";
+	}
+	//Get device with id
+	private Device getDevice(Mainboard mainboard, String id){
+		for(Device device : mainboard.getDevices()){
+			if(device.getId().equals(id)){
+				return device;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Create a syntax from a linkedlist {@linkplain Token}
+	 * 
+	 * @param tokens
+	 */
+	private String createSyntax(LinkedList<Token> tokens) {
+		String syntax = "";
+		Token token;
+		if (!tokens.isEmpty()) {
+			for (int i = 0; i < tokens.size(); i++) {
+				token = tokens.get(i);
+				if (token.type.equals(TokenType.id_identifier)) {
+					syntax += ' ' + "<id>";
+				} else if (token.type.equals(TokenType.keyword)) {
+					syntax += ' ' + token.instance;
+				} else if (token.type.equals(TokenType.separator)) {
+					syntax += token.instance;
+				}
+				else if( token.type.equals(TokenType.operator)){
+					syntax += ' ' + token.instance;
+				}
+				else {
+					if (i >= 1) {
+						if (tokens.get(i - 1).type.equals(TokenType.keyword)) {
+							syntax += ' ';
+						}
+					}
+					if (token.type.equals(TokenType.integer_literal)) {
+						syntax += "<integer>";
+					} else if (token.type.equals(TokenType.string_literal)) {
+						syntax += "<String>";
+					}
 				}
 			}
 		}
+		return syntax.trim();
 	}
-	return syntax.trim();
-}
-private void addTokenIdIdentifier(Mainboard mainboard){
-	String idIdentifiers = "";
-	for(Device device : mainboard.getDevices()){
-		idIdentifiers += "|" + device.getId();
+	private void addTokenIdIdentifier(Mainboard mainboard){
+		String idIdentifiers = "";
+		for(Device device : mainboard.getDevices()){
+			idIdentifiers += "|" + device.getId();
+		}
+		idIdentifiers = idIdentifiers.substring(1);
+		lexer.setIdIdentifiers(idIdentifiers);
 	}
-	idIdentifiers = idIdentifiers.substring(1);
-	lexer.setIdIdentifiers(idIdentifiers);
-}
-public LexicalAnalyzer getLexer() {
-	return lexer;
-}
+	public LexicalAnalyzer getLexer() {
+		return lexer;
+	}
 }

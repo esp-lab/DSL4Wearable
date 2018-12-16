@@ -48,6 +48,15 @@
                toolbarPath="iotwGroup"
                tooltip="Generate code">
          </action>
+          <action
+               class="iotwearable.editor.action.GrammarCheckerAction"
+               icon="src/iotwearable/editor/icons/check_grammar.png"
+               id="iotwearable.gef.GenerateCodeAction"
+               label="Generate code"
+               menubarPath="iotwMenu/iotwGroup"
+               toolbarPath="iotwGroup"
+               tooltip="Generate code">
+         </action>
       </actionSet>
    </extension>
 </plugin>

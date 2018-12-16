@@ -74,6 +74,7 @@ public class GenerateCodeCommand extends Command{
 			MessageWindow.show(GENERATE_CODE, MessageContent.ErrorReadFileMainboard);
 		}
 	}
+	
 	private void generateSources(List<String> sourceCode, String projectName) {
 		// write config file
 		try {

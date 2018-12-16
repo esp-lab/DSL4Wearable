@@ -1,7 +1,5 @@
 package iotwearable.editor.utilities;
 
-//import org.eclipse.core.resources.IProject;
-//import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
@@ -33,7 +31,6 @@ public class ResourceListener implements IResourceChangeListener{
               try {
 				event.getDelta().accept(new DeltaPrinter());
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
               break;
@@ -41,7 +38,6 @@ public class ResourceListener implements IResourceChangeListener{
               try {
 				event.getDelta().accept(new DeltaPrinter());
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
               break;
