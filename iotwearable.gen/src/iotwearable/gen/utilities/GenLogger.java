@@ -8,7 +8,7 @@ public class GenLogger {
 	private static List<String> logs = new ArrayList<String>();
 	
 	private GenLogger(){
-	};
+	}
 	
 	public static void addLog(String log){
 		if(INSTANCE == null){

@@ -29,7 +29,7 @@ public class Tokenizer {
 
 	public void add(String regex, TokenType token) {
 		tokenInfos
-				.add(new TokenInfo(Pattern.compile("^(" + regex + ")"), token));
+		.add(new TokenInfo(Pattern.compile("^(" + regex + ")"), token));
 	}
 	/**
 	 * Tokenize an input string.
@@ -54,7 +54,7 @@ public class Tokenizer {
 			}
 			if (!match){
 				break;
-//				throw new GenRuntimeException("Unexpected character in input: " + s);
+				//				throw new GenRuntimeException("Unexpected character in input: " + s);
 			}
 		}
 	}

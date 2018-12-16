@@ -201,9 +201,9 @@ public class StateSchemaAnalyzer {
 								}
 								else{
 									//Create code for the event by the system.
-//									String resultSub = "//Event: " + conn.getLabel().trim()+"\n"
-//											+"state"+ ((StateFrame)conn.getTarget()).getName()+"();\n";
-//									codeWriter.write(resultSub,"//<case"+component.getId()+">");
+									//									String resultSub = "//Event: " + conn.getLabel().trim()+"\n"
+									//											+"state"+ ((StateFrame)conn.getTarget()).getName()+"();\n";
+									//									codeWriter.write(resultSub,"//<case"+component.getId()+">");
 									GenLogger.addLog("Event from " + ((StateFrame)conn.getSource()).getName()
 											+ " to " + ((StateFrame)conn.getTarget()).getName() + " Not defined");
 								}
