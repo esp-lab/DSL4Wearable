@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 /**
  * A class for reading an input string and separating it into tokens that can be
  * used into Parser.
@@ -44,7 +45,28 @@ public class Tokenizer {
 			boolean match = false;
 			for (TokenInfo info : tokenInfos) {
 				Matcher m = info.regex.matcher(s);
-				if (m.find()) {
+				if(info.type.equals(TokenType.id_identifier)){
+					String _id = "";
+					try{
+						_id = s.split(" ")[0];
+					}
+					catch(Exception e){
+					}
+
+					if(!_id.isEmpty()){
+						if(isExistID(info.regex.toString(), _id)){
+							if (m.find()) {
+								match = true;
+								String tok = m.group().trim();
+								s = m.replaceFirst("").trim();
+								tokens.add(new Token(info.type, tok));
+								break;
+							}
+						}	
+					}
+
+				}
+				else if (m.find()) {
 					match = true;
 					String tok = m.group().trim();
 					s = m.replaceFirst("").trim();
@@ -59,6 +81,9 @@ public class Tokenizer {
 		}
 	}
 
+	private boolean isExistID(String  strID, String ID) {
+		return strID.replace("^(", "").replace(")", "").indexOf(ID) >= 0;
+	}
 	public LinkedList<Token> getTokens() {
 		return tokens;
 	}
