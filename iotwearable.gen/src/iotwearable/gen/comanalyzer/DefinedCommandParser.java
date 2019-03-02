@@ -18,7 +18,7 @@ import java.util.LinkedList;
  *
  */
 public class DefinedCommandParser {
-	private final String keywords = "Show|Display|button|pressed"
+	private final String keywords = "Show|Display|button pressed"
 			+ "|Hidden|Blink|Beep|push|Delay|times|received|send";
 	private LexicalAnalyzer lexer = new LexicalAnalyzer();
 	public DefinedCommandParser() {
